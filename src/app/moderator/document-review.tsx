@@ -2,13 +2,7 @@ import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import { SymbolView } from "expo-symbols";
 import React from "react";
-import {
-  Platform,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  View,
-} from "react-native";
+import { Pressable, ScrollView, StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { ThemedText } from "@/components/themed-text";
@@ -37,27 +31,55 @@ export default function DocumentDetailScreen() {
   const insets = useSafeAreaInsets();
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
+    <View
+      style={[
+        styles.container,
+        { paddingTop: insets.top, paddingBottom: insets.bottom },
+      ]}
+    >
       {/* Top Action Bar */}
       <View style={styles.header}>
         <Pressable onPress={() => router.back()} style={styles.iconButton}>
           <SymbolView
-            name={{ ios: "arrow.left", android: "arrow.back", web: "arrow.left" } as any}
+            name={
+              {
+                ios: "arrow.left",
+                android: "arrow.back",
+                web: "arrow.left",
+              } as any
+            }
             size={24}
             tintColor={COLORS.onSurface}
           />
         </Pressable>
         <View style={styles.headerRight}>
           <Pressable style={styles.iconButton}>
-            <SymbolView name="bookmark" size={24} tintColor={COLORS.onSurface} />
+            <SymbolView
+              name="bookmark"
+              size={24}
+              tintColor={COLORS.onSurface}
+            />
           </Pressable>
           <Pressable style={styles.iconButton}>
-            <SymbolView name={{ ios: "ellipsis", android: "ellipsis.vertical", web: "ellipsis" } as any} size={24} tintColor={COLORS.onSurface} />
+            <SymbolView
+              name={
+                {
+                  ios: "ellipsis",
+                  android: "ellipsis.vertical",
+                  web: "ellipsis",
+                } as any
+              }
+              size={24}
+              tintColor={COLORS.onSurface}
+            />
           </Pressable>
         </View>
       </View>
 
-      <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
         {/* Document Preview */}
         <View style={styles.previewContainer}>
           <Image
@@ -88,18 +110,30 @@ export default function DocumentDetailScreen() {
               <ThemedText style={styles.authorName}>Nguyễn Văn A</ThemedText>
             </View>
             <View style={styles.metaInfoItem}>
-              <SymbolView name="calendar" size={20} tintColor={COLORS.onSurfaceVariant} />
+              <SymbolView
+                name="calendar"
+                size={20}
+                tintColor={COLORS.onSurfaceVariant}
+              />
               <ThemedText style={styles.metaText}>12 Thg 10, 2023</ThemedText>
             </View>
           </View>
-          
+
           <View style={[styles.metaInfoRow, { marginTop: 12 }]}>
             <View style={styles.metaInfoItem}>
-              <SymbolView name="eye" size={20} tintColor={COLORS.onSurfaceVariant} />
+              <SymbolView
+                name="eye"
+                size={20}
+                tintColor={COLORS.onSurfaceVariant}
+              />
               <ThemedText style={styles.metaText}>4.2k lượt xem</ThemedText>
             </View>
             <View style={styles.metaInfoItem}>
-              <SymbolView name="arrow.down.to.line" size={20} tintColor={COLORS.onSurfaceVariant} />
+              <SymbolView
+                name="arrow.down.to.line"
+                size={20}
+                tintColor={COLORS.onSurfaceVariant}
+              />
               <ThemedText style={styles.metaText}>850 lượt tải</ThemedText>
             </View>
           </View>
@@ -110,10 +144,15 @@ export default function DocumentDetailScreen() {
           {/* Description */}
           <ThemedText style={styles.sectionTitle}>Mô tả tài liệu</ThemedText>
           <ThemedText style={styles.descriptionText}>
-            Tài liệu này cung cấp một cái nhìn sâu sắc về các cấu trúc dữ liệu cơ bản và nâng cao, cùng với các thuật toán cốt lõi trong khoa học máy tính. Bao gồm các ví dụ thực tế và mã nguồn minh họa bằng ngôn ngữ C++ và Python.
+            Tài liệu này cung cấp một cái nhìn sâu sắc về các cấu trúc dữ liệu
+            cơ bản và nâng cao, cùng với các thuật toán cốt lõi trong khoa học
+            máy tính. Bao gồm các ví dụ thực tế và mã nguồn minh họa bằng ngôn
+            ngữ C++ và Python.
           </ThemedText>
           <ThemedText style={styles.descriptionText}>
-            Đặc biệt hữu ích cho sinh viên năm 2 và năm 3 đang ôn tập cho kỳ thi cuối kỳ môn Cấu trúc Dữ liệu hoặc chuẩn bị cho các buổi phỏng vấn kỹ thuật.
+            Đặc biệt hữu ích cho sinh viên năm 2 và năm 3 đang ôn tập cho kỳ thi
+            cuối kỳ môn Cấu trúc Dữ liệu hoặc chuẩn bị cho các buổi phỏng vấn kỹ
+            thuật.
           </ThemedText>
 
           <View style={styles.tagsContainer}>
@@ -127,59 +166,98 @@ export default function DocumentDetailScreen() {
               <ThemedText style={styles.tagText}>Thuật toán</ThemedText>
             </View>
           </View>
-          
+
           {/* Related Documents */}
-          <ThemedText style={[styles.sectionTitle, { marginTop: 32 }]}>Tài liệu liên quan</ThemedText>
-          
+          <ThemedText style={[styles.sectionTitle, { marginTop: 32 }]}>
+            Tài liệu liên quan
+          </ThemedText>
+
           <Pressable style={styles.relatedCard}>
-             <Image
-                source={{ uri: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=200&auto=format&fit=crop" }}
-                style={styles.relatedImage}
-              />
-              <View style={styles.relatedInfo}>
-                 <ThemedText style={styles.relatedTitle}>Lập trình Hướng đối tượng với Java</ThemedText>
-                 <View style={styles.relatedMetaRow}>
-                    <ThemedText style={styles.relatedAuthor}>Trần Thị B</ThemedText>
-                    <View style={styles.relatedMetaItem}>
-                      <SymbolView name="arrow.down.to.line" size={14} tintColor={COLORS.onSurfaceVariant} />
-                      <ThemedText style={styles.relatedMetaText}>520</ThemedText>
-                    </View>
-                 </View>
+            <Image
+              source={{
+                uri: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=200&auto=format&fit=crop",
+              }}
+              style={styles.relatedImage}
+            />
+            <View style={styles.relatedInfo}>
+              <ThemedText style={styles.relatedTitle}>
+                Lập trình Hướng đối tượng với Java
+              </ThemedText>
+              <View style={styles.relatedMetaRow}>
+                <ThemedText style={styles.relatedAuthor}>Trần Thị B</ThemedText>
+                <View style={styles.relatedMetaItem}>
+                  <SymbolView
+                    name="arrow.down.to.line"
+                    size={14}
+                    tintColor={COLORS.onSurfaceVariant}
+                  />
+                  <ThemedText style={styles.relatedMetaText}>520</ThemedText>
+                </View>
               </View>
+            </View>
           </Pressable>
 
           <Pressable style={styles.relatedCard}>
-             <Image
-                source={{ uri: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=200&auto=format&fit=crop" }}
-                style={styles.relatedImage}
-              />
-              <View style={styles.relatedInfo}>
-                 <ThemedText style={styles.relatedTitle}>Nhập môn Cơ sở dữ liệu Quan hệ</ThemedText>
-                 <View style={styles.relatedMetaRow}>
-                    <ThemedText style={styles.relatedAuthor}>Lê Văn C</ThemedText>
-                    <View style={styles.relatedMetaItem}>
-                      <SymbolView name="arrow.down.to.line" size={14} tintColor={COLORS.onSurfaceVariant} />
-                      <ThemedText style={styles.relatedMetaText}>1.2k</ThemedText>
-                    </View>
-                 </View>
+            <Image
+              source={{
+                uri: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=200&auto=format&fit=crop",
+              }}
+              style={styles.relatedImage}
+            />
+            <View style={styles.relatedInfo}>
+              <ThemedText style={styles.relatedTitle}>
+                Nhập môn Cơ sở dữ liệu Quan hệ
+              </ThemedText>
+              <View style={styles.relatedMetaRow}>
+                <ThemedText style={styles.relatedAuthor}>Lê Văn C</ThemedText>
+                <View style={styles.relatedMetaItem}>
+                  <SymbolView
+                    name="arrow.down.to.line"
+                    size={14}
+                    tintColor={COLORS.onSurfaceVariant}
+                  />
+                  <ThemedText style={styles.relatedMetaText}>1.2k</ThemedText>
+                </View>
               </View>
+            </View>
           </Pressable>
-
         </View>
       </ScrollView>
 
       {/* Action Footer */}
       <View style={styles.actionFooter}>
-        <Pressable style={({ pressed }) => [styles.shareBtn, pressed && styles.btnPressed]}>
+        <Pressable
+          style={({ pressed }) => [
+            styles.shareBtn,
+            pressed && styles.btnPressed,
+          ]}
+        >
           <SymbolView
-            name={{ ios: "square.and.arrow.up", android: "share", web: "square.and.arrow.up" } as any}
+            name={
+              {
+                ios: "square.and.arrow.up",
+                android: "share",
+                web: "square.and.arrow.up",
+              } as any
+            }
             size={24}
             tintColor={COLORS.onSurface}
           />
         </Pressable>
-        <Pressable style={({ pressed }) => [styles.downloadBtn, pressed && styles.btnPressed]}>
-          <SymbolView name="arrow.down.to.line" size={20} tintColor={COLORS.onPrimary} />
-          <ThemedText style={styles.downloadBtnText}>Tải về (2.4 MB)</ThemedText>
+        <Pressable
+          style={({ pressed }) => [
+            styles.downloadBtn,
+            pressed && styles.btnPressed,
+          ]}
+        >
+          <SymbolView
+            name="arrow.down.to.line"
+            size={20}
+            tintColor={COLORS.onPrimary}
+          />
+          <ThemedText style={styles.downloadBtnText}>
+            Tải về (2.4 MB)
+          </ThemedText>
         </Pressable>
       </View>
     </View>
@@ -250,11 +328,11 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     borderWidth: 1,
     borderColor: COLORS.outlineVariant,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   authorAvatar: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
   authorName: {
     fontSize: 14,
